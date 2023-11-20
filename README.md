@@ -134,3 +134,9 @@ jobs:
 - [https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs)
 
 
+#### 13. Updated serverless.yml to obtain secret values from aws secrets manager.
+
+- create a secret in aws secret manager 
+- create a paramter store (aka aws variable) in aws systems
+
+- Further reference: [https://github.com/luqmannnn/aws-secret/tree/main/.github/workflows](https://github.com/luqmannnn/aws-secret/tree/main/.github/workflows)

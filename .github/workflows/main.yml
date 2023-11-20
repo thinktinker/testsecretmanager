@@ -6,6 +6,32 @@ on:
     branches: [ main, "*"]
 
 jobs:
+  retrieve_secret:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ vars.REGION }}
+
+      # Firstly, insert your secrets in AWS Secret Manager
+      # Then, you can retrieve the secrets based on your secret-id
+      # If you have multiple secret key and value pairs like mine, you can parse
+      # the entire json object and print the values you'd like to display/use
+
+      - name: Get Secret Object
+        run: |
+          secret_object=$(aws secretsmanager get-secret-value --secret-id prod/device/secret --query SecretString --output json)
+
+          # Parse specific keys from the secret object
+          secret_value_mobile=$(echo "$secret_object" | jq -r '. | fromjson | .martin_mobile')
+          secret_value_laptop=$(echo "$secret_object" | jq -r '. | fromjson | .martin_laptop')
+
+          echo "Secret value for mobile is: $secret_value_mobile"
+          echo "Secret value for laptop is: $secret_value_laptop"
+
   pre-deploy:
     runs-on: ubuntu-latest
     steps:
