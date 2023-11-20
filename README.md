@@ -1,5 +1,5 @@
-# cd-serverless
-CD-serverless - updated on 15 Nov
+# cd-serverless (updated, plus secret manager)
+CD-serverless - updated on 20 Nov
 
 
 #### 1. Make the first commit 
@@ -134,9 +134,11 @@ jobs:
 - [https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs)
 
 
-#### 13. Updated serverless.yml to obtain secret values from aws secrets manager.
+#### 13. Updated serverless.yml to obtain secret values from AWS secrets manager.
+#### Note. Values from parameter store were also retrieved via AWS systems manager.
 
 - create a secret in aws secret manager 
-- create a paramter store (aka aws variable) in aws systems
+- create a paramter store (aka aws variable) in aws systems manager
+- main.yml reflects the latest update to schedule the sequence of pre-deployment and regular deployment
 
 - Further reference: [https://github.com/luqmannnn/aws-secret/tree/main/.github/workflows](https://github.com/luqmannnn/aws-secret/tree/main/.github/workflows)
