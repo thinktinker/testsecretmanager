@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thinktinker/cd-serverless.git"
+    "url": "git+https://github.com/thinktinker/testsecretmanager.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/thinktinker/cd-serverless/issues"
+    "url": "https://github.com/thinktinker/testsecretmanager/issues"
   },
-  "homepage": "https://github.com/thinktinker/cd-serverless#readme",
+  "homepage": "https://github.com/thinktinker/testsecretmanager#readme",
   "dependencies": {
     "serverless": "^3.36.0"
   },
